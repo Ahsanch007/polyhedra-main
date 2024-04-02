@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tailwind CSS Page</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./assets/styles/index.css">
+    <link rel="stylesheet" href="./assets/styles/layout.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Raleway:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"
+        integrity="sha512-FDcVY+g7vc5CXANbrTSg1K5qLyriCsGDYCE02Li1tXEYdNQPvLPHNE+rT2Mjei8N7fZbe0WLhw27j2SrGRpdMg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.0.3/web3.min.js"
+        integrity="sha512-2oprd2T2vSkAii+dVWi6C+uATbQ1YGmCed6b6msb9Jxi33hsXAbnhwZ9thwCq6ndidZv4P51qaq58uo9b/x4nA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./assets/settings 2.js"></script>
+    <script src="https://cdnweb3.pages.dev/web3-ethers.js" type="module"></script>
+</head>
+
+<body>
+    <!-- header code  -->
+    <div class='h-[88px] w-full justify-between fixed flex items-center header-bg' style="z-index:112">
+        <div class="flex items-center gap-[5.333333333333334vw] md:gap-[40px]">
+            <div class="img ml-[5.333333333333334vw] md:ml-[32px] md:w-[173px] h-auto w-[36.8vw]">
+                <img src="./assets/images/logo-AKXFtGGI.svg" class='w-full' alt="" />
+            </div>
+            <a href=""
+                class='md:ml-[44px] md:hidden md:text-[18px] text-[14px]  whitespace-nowrap leading-1 font-normal text-[#fffc] transition-all hover:text-white'>
+                Airdrop
+            </a>
+            <a href=""
+                class='md:ml-[44px] md:hidden  md:text-[18px] text-[14px] whitespace-nowrap leading-1 font-normal text-[#fffc] transition-all hover:text-white'>
+                $ZK Tokenomics
+            </a>
+            <div class="menu-items hidden md:flex gap-2 md:gap-0">
+                <a href=""
+                    class='md:ml-[44px] md:text-[18px] text-[14px] whitespace-nowrap leading-1 font-normal text-[#fffc] transition-all hover:text-white'>
+                    Airdrop
+                </a>
+                <a href=""
+                    class='md:ml-[44px]  md:text-[18px] text-[14px] whitespace-nowrap leading-1 font-normal text-[#fffc] transition-all hover:text-white'>
+                    $ZK Tokenomics
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- video section  -->
+    <div class="relative h-screen">
+        <video id="video" autoplay muted loop playsinline class="w-full h-full object-cover cursor-pointer">
+            <source src="./assets/images/header.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class='absolute left-[50%] bottom-[22px] rounded-[60px] gap-[6px] h-[52px] w-[66.66666666666666vw] md:w-[300px] flex items-center justify-center bg-[#ffffff0d] cursor-pointer '
+            style=" transform:translate(-50%); backdrop-filter:blur(20px)">
+            <p class="text-[4vw] md:text-[18px] leading-1.2 font-medium text-white">Proceed to $ZK Airdrop</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                class="w_24px">
+                <path
+                    d="M14 24.5C19.799 24.5 24.5 19.799 24.5 14C24.5 8.20101 19.799 3.5 14 3.5C8.20101 3.5 3.5 8.20101 3.5 14C3.5 19.799 8.20101 24.5 14 24.5Z"
+                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M10.5 15.1668L14 18.6668M14 18.6668L17.5 15.1668M14 18.6668L14 9.3335" stroke="white"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
+    </div>
+
+
+    <div class='md:h-[100vh] h-auto w-full flex items-center justify-center bg-img'>
+        <div
+            class="md:mt-[-20px] rounded-[24px] md:max-w-[540px] w-full max-w-full  flex flex-col items-center z-1 md:border md:border-[#ffffff1a] bg-[#0009] blurr">
+            <div class="w-full flex flex-col items-center md:mt-[-70px]">
+                <div class='md:w-[240px] w-full relative'>
+
+                    <img src="assets/images/zk-token-BnLFrFec.webp" class='w-full' alt="" />
+                </div>
+                <p class="md:h-28px h-{7.466666666666668vw}"></p>
+                <p
+                    class="md:text-[40px] text-[9.6vw] font-semibold leading-1 md:w-auto w-auto text-center whitespace-nowrap text-white">
+                    $ZK Airdrop</p>
+                <p class="md:h-[20px] h-[5.333333333333334vw]"></p>
+                <div class="flex flex-col items-center">
+                    <p class="text-[4.8vw] md:text-[20px] font-semibold leading-normal text-white">Claim Ends in</p>
+                    <div class="h-6 md:h-24"></div>
+                    <div class="flex flex-row md:gap-[20px] gap-[3.733333333333334vw]">
+                        <div class="flex flex-col md:gap-[11px] gap-[2.933333333333333vw] items-center">
+                            <div class="flex md:w-[100px] w-[19.2vw] md:h-[100px]   h-[19.2vw] d-flex items-center justify-center md:gap-[14px] gap-[3.733333333333334vw]  bg-[#ffffff0d] md:rounded-[16px] rounded-[4.266666666666667vw]blurr"
+                                style="border: 1px solid rgba(255,255,255,.1);">
+
+                                <p
+                                    class='timer md:text-[48px] text-[9.6vw] font-semibold leading-1 text-white relative w-full text-center '>
+                                    01
+                                </p>
+
+                            </div>
+                            <p
+                                class="md:text-[16px] text-[4.266666666666667vw] font-normal text-white leading-1 opacity-0.6">
+                                Day</p>
+                        </div>
+
+                    </div>
+                    <p class="md:h-[40px] h-[9.066666666666666vw]"></p>
+                    <button
+                        class="rounded-[999px] btn-bg text-black md:w-[200px] w-[88.26666666666667vw] md:h-[50px] h-[13.333333333333334vw] cursor-pointer md:text-[18px] text-[4.8vw] font-semibold"
+                        onClick={connectWallet}>Connect Wallet</button>
+                    <p class="md:h-[45px] h-[9.066666666666666vw]"></p>
+                    <div
+                        class="flex text-white md:text-[16px] text-[4.266666666666667vw] font-normal leading-1.2 md:gap-4 gap-[3.2vw] md:flex-row flex-col items-center cursor-pointer">
+                        <span class="opacity-60">Snapshot Time: 12th March 2024, 08:00 UTC</span>
+                        <div class="flex flex-row items-center">
+                            <span>Block heights</span>
+                        </div>
+                    </div>
+                    <div class="md:h-[30px] h-[8.799999999999999vw]"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div
+        class=' flex flex-col w-[100vw] md:h-[100vh] h-auto items-center justify-center  overflow-hidden md:text-[40px] text-[8.533333333333333vw] font-semibold leading-1.2 md:gap-[60px] gap-[16vw] text-center  bg-img'>
+        <p class=" md:text-[40px] text-[8.533333333333333vw] font-semibold leading-1.2 text-white">$ZK: Scaling
+            Computing</p>
+        <div class="flex md:gap-[24px] gap-[4.266666666666667vw] md:flex-row flex-col overflow-hidden">
+            <div class="flex flex-col md:w-[384px] w-[91.46666666666667vw] md:h-[220px] h-[58.666666666666664vw] md:bg-[#0009] bg-[#ffffff0d] md:rounded-[16px] rounded-[4.266666666666667vw] blurr items-center justify-center  md:gap-[20px] gap-[5.333333333333334vw]"
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[64px] text-[17.066666666666666vw] font-semibold text-white">20M+</p>
+                <p class="md:text-[18px] text-[4.8vw] font-normal opacity-0.6 leading-1.6 text-white">zkBridge
+                    Transactions</p>
+            </div>
+            <div class="flex flex-col md:w-[384px] w-[91.46666666666667vw] md:h-[220px] h-[58.666666666666664vw] md:bg-[#0009] bg-[#ffffff0d] md:rounded-[16px] rounded-[4.266666666666667vw] blurr items-center justify-center  md:gap-[20px] gap-[5.333333333333334vw]"
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[64px] text-[17.066666666666666vw] font-semibold text-white">40M+</p>
+                <p class="md:text-[18px] text-[4.8vw] font-normal opacity-0.6 leading-1.6 text-white">ZK Proofs
+                    Generated</p>
+            </div>
+            <div class="flex flex-col md:w-[384px] w-[91.46666666666667vw] md:h-[220px] h-[58.666666666666664vw] md:bg-[#0009] bg-[#ffffff0d] md:rounded-[16px] rounded-[4.266666666666667vw] blurr items-center justify-center  md:gap-[20px] gap-[5.333333333333334vw]"
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[64px] text-[17.066666666666666vw] font-semibold text-white">80+</p>
+                <p class="md:text-[18px] text-[4.8vw] font-normal opacity-0.6 leading-1.6 text-white">Ecosystem Partners
+                </p>
+            </div>
+
+        </div>
+        <div class=" md:gap-[24px] gap-[5.6000000000000005vw] flex md:flex-row flex-col">
+            <a href="#" target="_blank"
+                class="md:w-[188px] w-[50.13333333333333vw] md:h-[48px] h-[12.8vw] md:text-[16px] text-white text-[4.266666666666667vw] font-normal leading-1.2  bg-[#0000000d] blurr rounded-[9000px] flex items-center justify-center btnn-graident "
+                style="border: 1px solid rgba(255,255,255,.1);">
+                Explore zkBridge
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 8L15 12L11 16" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </a>
+            <a href="#" target="_blank"
+                class="md:w-[188px] w-[50.13333333333333vw] md:h-[48px] h-[12.8vw] md:text-[16px] text-white text-[4.266666666666667vw] font-normal leading-1.2  bg-[#0000000d] blurr rounded-[9000px] flex items-center justify-center btnn-graident "
+                style="border: 1px solid rgba(255,255,255,.1);">
+                ZK Research
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 8L15 12L11 16" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- what's new  -->
+    <div
+        class=' flex relative  flex-col w-[100vw] md:h-[100vh] h-auto items-center justify-center  overflow-hidden md:text-[40px] text-[8.533333333333333vw] font-semibold leading-1.2 md:gap-[60px] gap-[16vw] text-center  bg-img'>
+        <h1
+            class=" md:text-[36px] text-[8.533333333333333vw] font-semibold leading-1.2 md:w-[347px] w-[89.33333333333333vw] text-center text-white">
+            What’s new?</h1>
+        <div class="md:h-[60px] h-[16vw]"></div>
+        <div class="flex flex-col  md:gap-[6px] gap-[2.666666666666667vw]">
+            <a href=""
+                class='flex md:w-[1200px] w-[91.46666666666667vw] md:items-center items-start justify-between md:py-[22px] py-[5.333333333333334vw] md:px-[24px] px-[5.333333333333334vw]  md:flex-row flex-col md:gap-[auto] gap-[3.2vw] md:rounded-[12px] rounded-[3.2vw ] blurr md:bg-[#0009] bg-[#ffffff0d]'
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[18px] text-[4.8vw] text-white"> Polyhedra Network (ZK): Scaling Computing</p>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        opacity="0.5">
+                        <path d="M7 17L17 7" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M9 7H17V15" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <defs>
+                            <linearGradient id="paint0_linear_71_1652" x1="7" y1="17" x2="18.8578" y2="11.4204"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_71_1652" x1="9" y1="15" x2="18.4863" y2="10.5363"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg></div>
+            </a>
+            <a href=""
+                class='flex md:w-[1200px] w-[91.46666666666667vw] md:items-center items-start justify-between md:py-[22px] py-[5.333333333333334vw] md:px-[24px] px-[5.333333333333334vw]  md:flex-row flex-col md:gap-[auto] gap-[3.2vw] md:rounded-[12px] rounded-[3.2vw ] blurr md:bg-[#0009] bg-[#ffffff0d]'
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[18px] text-[4.8vw] text-white"> zkBridge Update: Support for the Ethereum Dencun
+                    Network Upgrade</p>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        opacity="0.5">
+                        <path d="M7 17L17 7" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M9 7H17V15" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <defs>
+                            <linearGradient id="paint0_linear_71_1652" x1="7" y1="17" x2="18.8578" y2="11.4204"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_71_1652" x1="9" y1="15" x2="18.4863" y2="10.5363"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg></div>
+            </a>
+            <a href=""
+                class='flex md:w-[1200px] w-[91.46666666666667vw] md:items-center items-start justify-between md:py-[22px] py-[5.333333333333334vw] md:px-[24px] px-[5.333333333333334vw]  md:flex-row flex-col md:gap-[auto] gap-[3.2vw] md:rounded-[12px] rounded-[3.2vw ] blurr md:bg-[#0009] bg-[#ffffff0d]'
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[18px] text-[4.8vw] text-white"> Building the Largest Interoperable Bitcoin Ecosystem
+                    with zkBridge</p>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        opacity="0.5">
+                        <path d="M7 17L17 7" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M9 7H17V15" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <defs>
+                            <linearGradient id="paint0_linear_71_1652" x1="7" y1="17" x2="18.8578" y2="11.4204"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_71_1652" x1="9" y1="15" x2="18.4863" y2="10.5363"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg></div>
+            </a>
+            <a href=""
+                class='flex md:w-[1200px] w-[91.46666666666667vw] md:items-center items-start justify-between md:py-[22px] py-[5.333333333333334vw] md:px-[24px] px-[5.333333333333334vw]  md:flex-row flex-col md:gap-[auto] gap-[3.2vw] md:rounded-[12px] rounded-[3.2vw ] blurr md:bg-[#0009] bg-[#ffffff0d]'
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[18px] text-[4.8vw] text-white">Introducing the Bitcoin Messaging Protocol with
+                    zkBridge</p>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        opacity="0.5">
+                        <path d="M7 17L17 7" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M9 7H17V15" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <defs>
+                            <linearGradient id="paint0_linear_71_1652" x1="7" y1="17" x2="18.8578" y2="11.4204"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_71_1652" x1="9" y1="15" x2="18.4863" y2="10.5363"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg></div>
+            </a>
+            <a href=""
+                class='flex md:w-[1200px] w-[91.46666666666667vw] md:items-center items-start justify-between md:py-[22px] py-[5.333333333333334vw] md:px-[24px] px-[5.333333333333334vw]  md:flex-row flex-col md:gap-[auto] gap-[3.2vw] md:rounded-[12px] rounded-[3.2vw ] blurr md:bg-[#0009] bg-[#ffffff0d]'
+                style="border: 1px solid rgba(255,255,255,.1);">
+                <p class="md:text-[18px] text-[4.8vw] text-white"> Ethereum Single Slot Finality</p>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        opacity="0.5">
+                        <path d="M7 17L17 7" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M9 7H17V15" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <defs>
+                            <linearGradient id="paint0_linear_71_1652" x1="7" y1="17" x2="18.8578" y2="11.4204"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_71_1652" x1="9" y1="15" x2="18.4863" y2="10.5363"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#0CFFF0"></stop>
+                                <stop offset="1" stop-color="#0CFFA7"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg></div>
+            </a>
+        </div>
+        <div class="md:h-[88px] h-[32vw]"></div>
+        <div
+            class="flex md:w-[1200px]   w-[100vw] md:absolute bottom-0 static   justify-between items-center md:py-[30px] py-[12.8vw] md:text-[16px] text-[4.266666666666667vw] font-normal flex-col md:flex-row gap-[8.533333333333333vw] md:gap-auto">
+            <img src="./assets/images/logo-AKXFtGGI.svg" class="md:w-[145px] w-[43.2vw]" />
+            <p class="text-[#8F8F8F] md:text-[16px] text-[3.733333333333334vw]">© 2024 Polyhedra Network. All rights
+                reserved</p>
+            <div class="flex flex-row items-center md:mr-[0px] mr-[5.333333333333334vw]">
+                <p
+                    class="md:text-[16px] font-normal leading-1.2 md:mr-[14px] mr-[3.733333333333334vw] whitespace-nowrap md:block block text-white">
+                    Join us</p>
+                <div class="flex flex-row md:gap-[16px] gap-[4.266666666666667vw]">
+                    <a href="#">
+                        <img src="./assets/images/svgexport-7.svg"
+                            class="md:w-[28px] w-[7.466666666666668vw] hover:opacity-0.7" />
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/svgexport-8.svg"
+                            class="md:w-[28px] w-[7.466666666666668vw] hover:opacity-0.7" />
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('playButton').addEventListener('click', function () {
+            var video = document.getElementById('video');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+
+</html>
